@@ -2,7 +2,7 @@ const empId = 101
 let empName = "Neha"
 let empCity = "Pune"
 
-let empState;//undefined
+let empState;//undefinedcode
 
 console.log(empId)
 
