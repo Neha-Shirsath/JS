@@ -19,3 +19,18 @@ console.log(createNewDate2.toLocaleString());
 
 let date2 = new Date("01-15-2026")
 console.log(date2.toLocaleString());
+
+let TimeStamp = Date.now()
+
+console.log(TimeStamp);
+console.log(date2.getTime());
+
+console.log(Math.floor(Date.now()/1000))//milisecds to seconds
+
+console.log(date2.getDay());//Thursday
+console.log(date2.getMonth()+1);//
+
+console.log(date2.toLocaleString('default',{
+    weekday: "narrow"
+}
+));//default => style of date , narrow => short form of weekday
