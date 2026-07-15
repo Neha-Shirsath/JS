@@ -14,7 +14,7 @@ const MyInfo = {
 
 console.log(MyInfo)
 
-console.log(MyInfo.name)
+console.log(MyInfo.name)//mostly used
 console.log(MyInfo["name"])//more appropriate
 
 console.log(MyInfo[mySymbol]);
