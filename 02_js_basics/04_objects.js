@@ -51,3 +51,17 @@ console.log(Object.values(tinderUser).length);//no of vals in obj
 console.log(Object.entries(tinderUser));//no of keys-vals in obj
 
 console.log(tinderUser.hasOwnProperty("age"));//yes=>true else false
+
+
+//object destructuring
+const course = {
+    courseName : "JS Basics",
+    courseInstructor : "HiteshCh",
+    fees : 999
+}
+console.log(course.courseInstructor)
+//instead if using this repeatedly we use >>
+
+const {courseInstructor : Instructor} = course //object destructuring
+
+console.log(Instructor)
