@@ -27,7 +27,7 @@ console.log(MyInfo)
 MyInfo.greeting = function(){
     return "Hello JS user!!"
 }
-console.log(MyInfo.greeting);//function (anonymous)
+console.log(MyInfo.greeting);//function (anonymous)=>reference
 console.log(MyInfo.greeting());//return sends the value back to the caller
 
 //another way
