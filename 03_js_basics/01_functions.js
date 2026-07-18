@@ -53,6 +53,7 @@ function numbers(val1, val2, ...nums){
 }
 console.log(numbers(200, 400, 5000, 10));//val1 => 200, val2 => 400, nums =[5000, 10]
 
+
 //obj in functions
 const user = {
     name: "Neha",
