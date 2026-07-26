@@ -1,0 +1,40 @@
+*{
+    margin : 0;
+    font-family: sans-serif;
+}
+
+span{
+    display: block;
+}
+
+.boxes{
+    margin: 200px auto 200px;
+    width: 80%;
+    text-align: center;
+}
+
+.button{
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    display: inline-block;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#grey{
+    background-color: gray;
+}
+#white{
+    background-color: white;
+}
+#blue{
+    background-color: blue;
+}
+#yellow{
+    background-color: yellow;
+}
+#red{
+    background-color: red;
+}
