@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        #images{
+            display: flex;
+        }
+        img{
+            height: 300px;
+            width: 330px;
+            margin: 3px;
+        }
+        a{
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <div>
+        <ul id="images">
+            <li><img src="https://images.pexels.com/photos/36840820/pexels-photo-36840820.jpeg" alt="farmhouse" id="farmhouse" ></li>
+            <li><img src="https://images.pexels.com/photos/8607326/pexels-photo-8607326.jpeg" alt="japan" id="japan"></li>
+            <li><img src="https://images.pexels.com/photos/38012644/pexels-photo-38012644.jpeg" alt="bird" id="bird"></li>
+            <li><img src="https://images.pexels.com/photos/374885/pexels-photo-374885.jpeg" alt="coffee" id="coffee"></li>
+            <li id="google"><a href="https:\\www.google.com">Google</a></li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    document.getElementById("bird").onclick = function(){
+        alert("Bird clicked");
+    }//not good approach
+
+    document.getElementById("images").addEventListener('click', function(e){
+        console.log("image clicked");
+    }, false)
+
+    // document.getElementById("farmhouse").addEventListener('click', function(e){
+    //     // alert("Farmhouse is clicked");
+    //     console.log(e);//e => browser and environment events
+    //     console.log("farmhouse clicked");
+    //     e.stopPropagation()
+    // }, false)//best approach => it has propagation (true, false=>default(bubbling))
+
+    //false/default => inner first then outer
+    //true => outer first then inner
+    //to avoid both and print only one => e.stopPropagation() =>only inner
+
+    // document.getElementById("google").addEventListener("click",function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("Google link is clicked");
+    // })
+
+    document.querySelector("#images").addEventListener("click", function(e){
+        console.log(e.target);//only img selected
+        // console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        
+        if(e.target.tagName === "IMG"){
+            console.log(e.target.id);
+            let toRemove = e.target.parentNode;
+            toRemove.remove();
+        }
+    })
+
+
+</script>
+</html>
