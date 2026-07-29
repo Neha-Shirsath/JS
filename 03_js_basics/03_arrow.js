@@ -60,7 +60,7 @@ const addTwo3 = function(n1, n2){
 }
 console.log(addTwo(1, 2))
 
-// this.name = "John" // John array fun referes to thhis outside surrounding scope instaed of its parent obj
+// this.name = "John" // John arraw fun referes to thhis outside surrounding scope instaed of its parent obj
 const person = {
   name: "John",
   greet: () => {

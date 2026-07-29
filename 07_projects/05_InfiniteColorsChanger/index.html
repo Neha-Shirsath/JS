@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Colors</title>
+</head>
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #414141; color:aliceblue">
+    <div>
+        <h1>Click start to change the background color.</h1>
+    </div>
+    <div>
+        <button id="start" style="height: 30px; width: 60px; border-radius: 10px; margin: 5px; font-size: 15px;">Start</button>
+        <button id="stop" style="height: 30px; width: 60px; border-radius: 10px; margin: 5px; font-size: 15px;">Stop</button>
+    </div>
+    
+</body>
+
+<script>
+    const randomNumber = function(){
+        const hex = "0123456789ABCDEF";
+        let color = "#";
+        for(let i=0; i<6 ; i++){
+            color += hex[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }; 
+
+    let changeInterval;
+    const startColorChanging = function(){
+        if(!changeInterval){
+            changeInterval = setInterval(changeColor, 1000);
+        }
+
+        function changeColor() {
+            document.body.style.backgroundColor = randomNumber();            
+        }
+    };
+
+    document.querySelector("#start").addEventListener("click", startColorChanging);
+
+    const stopColorChanging = function(){
+        clearInterval(changeInterval);
+        changeInterval = null;
+    };
+
+    document.querySelector("#stop").addEventListener("click", stopColorChanging);
+</script>
+</html>
