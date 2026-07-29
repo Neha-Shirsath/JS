@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetInterval Event</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: azure;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #btn{
+        display: flex;
+    }
+    #start, #stop{
+        margin : 5px;
+        height: 40px;
+        width: 80px;
+        border-radius: 8px;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <h1 id="title">Welcome To Website</h1> 
+    <div id="btn">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </div>
+</body>
+
+<script>
+    // setInterval(function(){
+    //     console.log("Sign in", Date.now());
+    // },3000);//after each 3s msg will printed
+
+    const popup = function(msg){
+        const date = new Date()
+        console.log(msg, "30% Discount", date);
+    }
+    // setInterval(popup,1000,"buy now");//we can pass params too
+
+    //clear Interval stop action => clearInterval()
+ 
+    let startPop;
+    document.querySelector("#start").addEventListener("click", function(){
+        startPop = setInterval(popup, 1000,"Buy Now");
+    });//when clicked start start interval 
+    document.querySelector("#stop").addEventListener("click", function(){
+        clearInterval(startPop);
+        console.log("Interval stopped!");
+    });//when clicked stop stoped interval
+</script>
+</html>

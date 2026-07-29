@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetTimeout Event</title>
+</head>
+<body style="background-color: #414141; color: bisque;">
+    <h1 id="title">Welcome to Website</h1> 
+    <button id="stop">Stop</button>   
+</body>
+
+<script>
+    setTimeout(function(){
+        console.log("Hello");
+    },2000);//after 2s "Hello is printed"
+
+    function sayHello(){
+        console.log("Hello to evryone!!")
+    }
+    setTimeout(sayHello,3000);//only pass function reference as it is as a handler
+
+    const changeH1 = function(){
+        document.querySelector("#title").innerHTML = "Neha this side..."
+    }
+    const changeTimeout = setTimeout(changeH1,6000);
+
+    //To stop event to happen after some event
+    // clearTimeout(changeTimeout)//timeout evnt will never print
+
+    document.querySelector("#stop").addEventListener("click", function(){
+        clearTimeout(changeTimeout);
+        console.log("Stopped");
+    });//when clicked on button before time => timeout stops chnages not will appeared
+
+</script>
+</html>

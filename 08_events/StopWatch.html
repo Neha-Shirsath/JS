@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+</head>
+<style>
+    body{
+        background-color: rgb(219, 215, 215);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;                
+    }
+    #container{
+    background: white;
+    padding:20px;
+    border-radius:12px; 
+    } 
+    #stopwatch{
+        font-size: 20px;
+        font-family: Tahoma;
+    }
+    #clock{
+        background-color: rgb(193, 132, 45);
+        color: azure;
+        height: 40px;
+        text-align: center;
+        border-radius: 8px;
+        width: 200px;
+        margin: 5px;
+        padding: 8px;
+        font-size: 30px;
+        box-shadow: 4px 4px 8px rgb(177, 17, 44);
+        font-family: Tahoma;
+    }
+    #btn{
+        display: flex;
+    }
+    #start, #stop, #reset{
+        margin : 8px;
+        height: 30px;
+        width: 60px;
+        border-radius: 8px;
+        font-size: 20px;
+        border: none;
+        background-color: rgb(115, 113, 113);
+        box-shadow: 5px 5px 8px rgb(165, 163, 163);
+        font-family: Tahoma;
+        color: white;
+    }
+    #start:hover, #stop:hover, #reset:hover{
+        box-shadow: 5px 5px 15px rgb(80, 78, 78);
+    }
+
+</style>
+<body>
+    <div>
+        <div id="container">
+            <div id="stopwatch">Stopwatch</div>
+            <div id="clock"></div>
+        </div>
+        <div>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    let seconds = 0;
+let minutes = 0;
+let hours = 0;
+
+let timeInterval = null;
+
+const clock = document.querySelector("#clock");
+
+// Show initial value
+clock.innerHTML = "00:00:00";
+
+function updateStopwatch() {
+    seconds++;
+
+    if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+    }
+
+    if (minutes === 60) {
+        minutes = 0;
+        hours++;
+    }
+
+    clock.innerHTML =
+        String(hours).padStart(2, "0") + ":" +
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
+}
+
+// Start button
+document.querySelector("#start").addEventListener("click", function () {
+    if (!timeInterval) {
+        timeInterval = setInterval(updateStopwatch, 1000);
+    }
+});
+
+// Stop button
+document.querySelector("#stop").addEventListener("click", function () {
+    clearInterval(timeInterval);
+    timeInterval = null;
+});
+
+document.querySelector("#reset").addEventListener("click", function () {
+    clearInterval(timeInterval);
+    timeInterval = null;
+
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+
+    clock.innerHTML = "00:00:00";
+});
+
+</script>
+
+</html>

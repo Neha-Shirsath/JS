@@ -3,7 +3,7 @@ let someNumber = null
 console.log(typeof(someNumber));
 
 let intNumber = Number(someNumber)
-console.log(intNumber);
+console.log(intNumber);//0
 
 
 console.log(typeof(intNumber));
