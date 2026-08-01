@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API REQUEST</title>
+</head>
+<style>
+    body{
+        background-color: #414141;
+        color: black;
+    }
+    .card{
+        height: 350px;
+        width: 250px;
+        margin-left: 20px; 
+        display: flex;  
+        flex-direction: column;  
+        justify-content: center; 
+        align-items: center;  
+        background-color: antiquewhite;
+    }
+    img{
+        height: 300px;
+        width: 250px;
+    }
+    button{
+        margin-left: 20px;
+        margin-top: 10px;
+        height: 40px;
+        width: 100px;
+        border-radius: 10px;
+        background-color: rgb(157, 227, 157);
+    }
+</style>
+<body>
+    <div class="card" style="display: none;" id="card">
+        <img id="std" src="" alt="">
+        <h2 id="name"></h2>
+        <h4 id="foll"></h4>
+    </div>
+    <button id="btn">Click to Know</button>
+</body>
+
+<script>
+    const requesturl= "https://api.github.com/users/Neha-Shirsath";
+
+    const button = document.getElementById("btn")
+
+    button.addEventListener('click',function(){ 
+        const xhr = new XMLHttpRequest();
+
+        xhr.open("GET", requesturl);
+
+        xhr.onreadystatechange = function (){
+            if (xhr.readyState === 4) {
+               const data = JSON.parse(xhr.responseText);//url gives response in string so convert it into json
+
+                document.getElementById("name").innerHTML = data.name
+                document.getElementById("std").src = data.avatar_url;
+                document.getElementById("foll").innerText = "Followers : " + data.followers;
+                document.getElementById("card").style.display = "flex";
+        }
+    };
+    xhr.send();
+});       
+</script>
+</html>
