@@ -35,7 +35,7 @@ promiseThree.then(function(user){
     console.log(user);    
 });//then also pass it is in then so it can be accessed
 
-//chaining then and catch
+//chaining then(thening) and catch
 const newPromise = new Promise(function(resolve, reject){
 
     setTimeout(function(){
@@ -81,7 +81,7 @@ async function consumenewPromise2(){
 }
 consumenewPromise2()
 
-//api fetch
+//api fetch using async await
 async function getUsers(){
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -93,6 +93,7 @@ async function getUsers(){
 }
 getUsers()
 
+//api fetch using promise
 fetch('https://jsonplaceholder.typicode.com/users').then((response) => {
     return response.json();
 }).then((data) => {
